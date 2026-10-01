@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f8fa"><title>Vadio — Your video, in any language</title>
+  <link rel="stylesheet" href="/static/style.css"><script src="/static/app.js" defer></script>
+</head>
+<body>
+<header><a class="brand" href="/" aria-label="Vadio home"><span class="brand-icon">v</span>vadio<span class="brand-dot">.</span></a><div class="header-right"><span class="studio">VIDEO TRANSLATION STUDIO</span><span class="local-badge"><i></i> Local workspace</span></div></header>
+<main>
+  <section class="intro"><div class="eyebrow"><span>✦</span> LESS BARRIERS. MORE CONNECTION.</div><h1>Your video.<br><span>A whole new language.</span></h1><p>Turn your words into a voice the world understands.<br>Upload a video. Pick a language. Make yourself heard.</p><div class="intro-tags"><span>◎ Auto language detection</span><span>≋ AI-powered voice</span><span>↗ Ready-to-share video</span></div></section>
+  <div id="setup" class="notice" hidden><strong>One quick setup before you begin</strong><p>Add your Google AI Studio API key to the <code>.env</code> file and restart the app. Your key stays on the server. See the project README for instructions.</p></div>
+  <div id="error" class="error" role="alert" hidden></div>
+  <form id="translate-form" class="workspace">
+    <section class="upload-panel"><div class="section-heading"><h2><span class="step">01</span> Add your video</h2><span class="small-label">START HERE</span></div>
+      <label id="dropzone" class="dropzone" for="video-file"><input id="video-file" type="file" accept=".mp4,.mov,.webm,.mkv,.avi,.m4v"><span class="upload-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4m-4 4 4-4 4 4M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg></span><strong>Drop your video here</strong><span>or <b>browse files</b> to get started</span><small>MP4, MOV, WebM, MKV & more<br>Up to 200 MB · Maximum 10 minutes</small></label>
+      <div id="file-preview" hidden><video id="source-video" controls preload="metadata"></video><div class="file-details"><span class="file-symbol">▷</span><div><strong id="filename"></strong><small id="file-size"></small></div><button id="remove-file" type="button" class="icon-button" aria-label="Remove video">×</button></div><p id="preview-warning" class="muted" hidden>Your browser cannot preview this format. You can still translate it.</p></div>
+      <div class="privacy-note"><span>◈</span><p>Your video stays in your local workspace. Audio and text are sent to Google AI Studio to create the translation.</p></div>
+    </section>
+    <section class="options-panel"><div class="section-heading"><h2><span class="step">02</span> Make it yours</h2></div>
+      <label class="field-label">Original language</label><div class="auto-field"><span>◎</span><div>Detect automatically<small>We’ll recognize the spoken language</small></div><span class="auto-pill">AUTO</span></div>
+      <label class="field-label" for="target">Translate into</label><select id="target" name="target" required><option value="ur">Urdu — اردو</option><option value="en">English</option></select>
+      <label class="field-label" for="voice">Narration voice</label><select id="voice" name="voice"><option value="Kore">Kore</option></select>
+      <div class="voice-note"><span>♪</span><p>A fresh voice, your original message.<small>AI-generated narration · No voice cloning</small></p></div>
+      <button id="submit" class="primary-button" type="submit" disabled><span>Translate video</span><span>↗</span></button>
+      <p class="button-note">Video + translated audio + subtitles included</p>
+    </section>
+  </form>
+  <section id="progress-panel" class="result-panel" hidden aria-live="polite"><div class="section-heading"><h2 id="progress-title">Creating your translation</h2><span id="progress-percent" class="progress-percent">0%</span></div><p id="stage">Uploading your video…</p><div class="progress-track"><div id="progress-fill"></div></div><div class="progress-steps"><span>Transcribe</span><span>Translate</span><span>Generate voice</span><span>Render video</span></div><p class="muted">This may take a few minutes. You can return to this page while processing continues.</p></section>
+  <section id="result" class="result-panel" hidden><div class="section-heading"><h2><span class="success-mark">✓</span> Ready for a new audience</h2><span id="language-pair" class="language-pair"></span></div><video id="result-video" controls preload="metadata"></video><div class="download-row"><a id="download-video" class="primary-button" download="translated.mp4">↓ Download video</a><a id="download-audio" class="secondary-button" download>↓ Audio</a><a id="download-subtitles" class="secondary-button" download>↓ Subtitles</a></div><details><summary>View transcript & translation</summary><div id="transcript"></div></details><p class="muted">Audio is AI-generated. Translated speech replaces the original soundtrack; timing and pronunciation may vary.</p></section>
+  <section class="how-it-works"><div class="how-title">ONE VIDEO. NEW POSSIBILITIES.</div><div class="feature-grid"><article><span class="feature-number">01 /</span><h3>Bring your story</h3><p>A tutorial, a presentation, or a moment worth sharing. Start with a video you already have.</p></article><article><span class="feature-number">02 /</span><h3>Let language flow</h3><p>Speech is detected, transcribed, and translated into your selected language.</p></article><article><span class="feature-number">03 /</span><h3>Press play, anywhere</h3><p>Download your dubbed video and subtitles, ready for your next audience.</p></article></div></section>
+</main><footer><a class="brand footer-brand" href="/">vadio.</a><span>A little less lost in translation.</span><span>Made for connection ↗</span></footer>
+</body></html>
